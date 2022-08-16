@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[Appointment] (
+ [Id] INT IDENTITY (1, 1) NOT NULL,
+ [UserName] VARCHAR (MAX) NOT NULL,
+ [Session] VARCHAR (MAX) NOT NULL,
+ [DoctorName] VARCHAR (MAX) NOT NULL,
+ [Start] DATETIME2 NOT NULL,
+ PRIMARY KEY CLUSTERED ([Id] ASC)
+);

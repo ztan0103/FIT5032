@@ -1,0 +1,53 @@
+﻿@model FIT5032_32747861.Models.IndexViewModel
+@{
+    ViewBag.Title = "Personal information";
+    string height = Request["Height"];
+    string weight = Request["Weight"];
+    string highbloodpressure = Request["High blood pressure"];
+    string lowbloodpressure = Request["Low blood pressure"];
+    string pulse = Request["Pulse"];
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Change your account settings</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Password:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("ChangePassword", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("SetPassword", "SetPassword")
+            }
+            ]
+        </dd>
+        <dt>External login name:</dt>
+        <dd>
+            @Model.Logins.Count [
+            @Html.ActionLink("Manage", "ManageLogins") ]
+        </dd>
+
+
+    </dl>
+    <h4>Personal health information</h4>
+    Height:<br>
+    <input type="text" name="Height" value=@height>@height<br><br> 
+    Weight:<br>
+    <input type="text" name="Weight" value=@weight><br><br>
+    High blood pressure:<br>
+    <input type="text" name="High blood pressure" value=@highbloodpressure><br><br>
+    Low blood pressure:<br>
+    <input type="text" name="Ligh blood pressure" value=@lowbloodpressure><br><br>
+    Pulse:<br>
+    <input type="text" name="Pulse" value=@pulse><br><br>
+    <button type="button" >submit</button>
+</div>
+
+
